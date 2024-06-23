@@ -11,7 +11,7 @@ Still, since we're gaining performance, this trade-off is worth it, right? Well,
 
 To improve this issue, I created a custom cpufreq.sh file to replace the default ones that come with the emulators:
 
-The first part of this file disable the fourth cpu core of the a133plus, because most present in trimui emulators are singe-threaded, a coupe of them like PPSSPP can use more cores, but even then the 4th core is berely used. Disabling him can save energy without a performance impact.
+The first part of this file disable the fourth cpu core of the a133plus, because most present in trimui emulators are singe-threaded, a coupe of them like PPSSPP can use more cores, but even then the 4th core is berely used. Disabling him can save energy without a performance impact. You can still limit it to 2 CPU cores for playstation and below to save energy without a performance impact.
 
 ```
 echo 1 > /sys/devices/system/cpu/cpu0/online
