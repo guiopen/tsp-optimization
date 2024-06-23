@@ -56,3 +56,7 @@ If you are using an operating system other than Linux, you can manually replace 
 Afterward, reinsert the SD card into the handheld and restart or power on the device. Enjoy!
 
 Note: The scripts will be temporarily disabled if you use the performance or power-saving modes activated with the Fn key. To re-enable them, simply disable these modes and restart the device.
+
+**Roadmap:**
+ - Tune the scripts per emulator
+ - Add a way to easily apply the scripts in windows and Macos
