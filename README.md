@@ -11,41 +11,37 @@ Still, since we're gaining performance, this trade-off is worth it, right? Well,
 
 To improve this issue, I created a custom cpufreq.sh file to replace the default ones that come with the emulators:
 
-The first part of this file takes advantage of a feature common to all emulators present in the TrimUI: they are single-threaded, meaning the entire game is emulated on a single core. However, the A133P has 4 cores. We can disable 2 of the 4 cores to save energy because they are not used during games. We leave 2 cores enabled instead of just 1 to be able to run other system functions on a separate core, without stealing performance from our main gaming core.
+The first part of this file disable the fourth cpu core of the a133plus, because most present in trimui emulators are singe-threaded, a coupe of them like PPSSPP can use more cores, but even then the 4th core is berely used. Disabling him can save energy without a performance impact.
 
 ```
-# 1 - disabling unnecessary cpu cores
 echo 1 > /sys/devices/system/cpu/cpu0/online
 echo 1 > /sys/devices/system/cpu/cpu1/online
-echo 0 > /sys/devices/system/cpu/cpu3/online
+echo 1 > /sys/devices/system/cpu/cpu3/online
 echo 0 > /sys/devices/system/cpu/cpu2/online
 ```
 
-The second part is the tuning of the main core, responsible for running the games. Here the clock limit has been reduced from 2000MHz to 1800MHz, which is the maximum recommended for the A133P chip. We also set the minimum frequency to 408MHz and the CPU governor to ondemand. This way the clock will vary from 408 to 1800 automatically depending on the needs of each game.
+The second part involves tuning the CPU cores. The clock limit has been reduced from 2000MHz to 1800MHz, which is the maximum recommended frequency for the A133P chip. Additionally, the minimum frequency has been set to 408MHz, and the CPU governor has been set to "ondemand." This configuration allows the clock speed to automatically adjust between 408MHz and 1800MHz based on the requirements of each game, minimizing performance impact while significantly reducing heat generation.
 
 ```
-# 2 - tuning main cpu core
 echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 408000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 1800000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 ```
 
-The third part adjusts the frequencies of the secondary core, but since the games will not run here, we can leave the clock limit lower as well as set the governor to `conservative`, which scales clock speed more gracefully than `ondemand`:
+If anyone feels the need to squeeze every last drop of performance out of the main core, they can swap the second part for this, unlocking the CPU limit up to 2000MHz, even if the performance-energy tradeoff is no longer worth it:
 
 ```
-# 3 - tuning secondary cpu core
-echo conservative > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-echo 408000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-echo 1200000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-```
-
-Finally, if anyone feels the need to squeeze every last drop of performance out of the main core, they can swap the second part for this, unlocking the CPU limit up to 2000MHz, even if the performance-energy tradeoff is no longer worth it:
-
-```
-# 2 - tuning main cpu core
 echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 408000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+```
+
+If your priority is battery-life over performance, you can reduce the maximum frequency to 1600mhz, it will still perform very well but heating less and using less battery:
+
+```
+echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo 408000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 1608000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 ```
 
 To make the changes to the TrimUI Smart Pro, clone this repository or download the zip file, access the TrimUI Smart Pro's SD card, open the terminal at the root of the card and, in Linux, run the following command:
