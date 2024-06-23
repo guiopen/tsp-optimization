@@ -1,5 +1,5 @@
 # tsp-optimization
-Trimui Smart Pro, for its price, is good on a lot of aspects, but one of the problems that scares buyers away is the excessive heat reported by users. 
+Trimui Smart Pro, for its price, is good on a lot of aspects, but one of the main problems that scares buyers away is the excessive heat reported by users. 
 
 This heat has two main causes:
 
