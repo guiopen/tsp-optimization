@@ -30,11 +30,11 @@ echo 408000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 1800000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 ```
 
-The third part adjusts the frequencies of the secondary core, but since the games will not run here, we can leave the clock limit lower:
+The third part adjusts the frequencies of the secondary core, but since the games will not run here, we can leave the clock limit lower as well as set the governor to `conservative`, which scales clock speed more gracefully than `ondemand`:
 
 ```
 # 3 - tuning secondary cpu core
-echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+echo conservative > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
 echo 408000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
 echo 1200000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
 ```
