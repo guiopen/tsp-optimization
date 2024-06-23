@@ -60,3 +60,4 @@ Note: The scripts will be temporarily disabled if you use the performance or pow
 **Roadmap:**
  - Tune the scripts per emulator
  - Add a way to easily apply the scripts in windows and Macos
+ - Make vídeos comparing the performance and temperatures
