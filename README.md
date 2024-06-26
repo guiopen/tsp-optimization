@@ -1,5 +1,5 @@
 # tsp-optimization
-Trimui Smart Pro, for its price, is good on a lot of aspects, but one of the main problems that scares buyers away is the excessive heat reported by users. 
+This is an in-depth guide for everything you can do in software to reduce temperature and improve battery life of the Trimui Smart Pro handheld with minimal-to-zero performance loss. Also, it will explain all of its quirks and serve as a documentation for cpu frequency control in portable gaming handhelds
 
 This heat has two main causes:
 
@@ -11,7 +11,7 @@ Still, since we're gaining performance, this trade-off is worth it, right? Well,
 
 To improve this issue, I created a custom cpufreq.sh file to replace the default ones that come with the emulators:
 
-The first part of this file disable the fourth cpu core of the a133plus, because most present in trimui emulators are singe-threaded, a coupe of them like PPSSPP can use more cores, but even then the 4th core is berely used. Disabling him can save energy without a performance impact. You can still limit it to 2 CPU cores for playstation and below to save energy without a performance impact.
+The first part of this file disable the fourth cpu core of the a133plus, because most present in trimui emulators are singe-threaded, a couple of them like PPSSPP can use more cores, but even then the 4th core is berely used. Disabling him can save energy without a performance impact. You can still limit it to 2 CPU cores for playstation and below to save energy without a performance impact.
 
 ```
 echo 1 > /sys/devices/system/cpu/cpu0/online
