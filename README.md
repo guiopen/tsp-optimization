@@ -14,7 +14,7 @@ This trade-off seems acceptable for a performance gain, but the problem arises f
 
 ### 2. Taking Control: cpufreq.sh Files
 
-The Trimui Smart Pro offers two methods for controlling CPU frequency: the FN button and cpufreq.sh files. The FN button method, plagued with issues discussed later, is not recommended. We'll focus on the more reliable cpufreq.sh files.
+The Trimui Smart Pro offers two methods for controlling CPU frequency: the FN button and cpufreq.sh files. The FN button method, plagued with issues discussed later in secion 6, is not recommended. We'll focus on the more reliable cpufreq.sh files.
 
 Within the Trimui Smart Pro's SD card package, under the "Emus" folder, each emulator has a corresponding cpufreq.sh file. This script, executed upon launching a game, tweaks the CPU frequencies for that specific emulator. While the concept is sound, the default configurations are often illogical.
 
