@@ -93,7 +93,7 @@ This configuration increases the maximum frequency limit to 1800MHz for a perfor
 
 **Important:** Avoid setting the maximum frequency to 2000MHz. This overclocked frequency is outside the CPU's supported range and offers minimal performance gains while significantly increasing device's temperature.
 
-### 5. Limitations: Unlocking the Full Potential of Individual Cores
+### 5. Limitations: Shared Frequency Policy
 
 While exploring ways to optimize the Trimui Smart Pro's thermal performance, I encountered a significant hurdle: a shared frequency policy across all CPU cores. This quirk sets it apart from typical Linux systems and imposes limitations on our ability to fine-tune its performance.
 
