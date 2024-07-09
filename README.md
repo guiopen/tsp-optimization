@@ -61,7 +61,7 @@ Minimum and maximum frequency limits dictate the allowable range for the CPU fre
 
 ### 4. Recommended Configurations
 
-**General Use:**
+**General Use (balanded profile):**
 
 ```
 echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -71,7 +71,7 @@ echo 1608000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
 This configuration utilizes the "ondemand" governor, sets the minimum frequency to the lowest possible value (408MHz), and limits the maximum frequency to 1608MHz. This strikes a balance between performance and power consumption, ensuring smooth gameplay for most games while preventing excessive heat.
 
-**Older Platforms:**
+**Older Platforms (powersave profile):**
 
 ```
 echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -81,7 +81,7 @@ echo 1608000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
 This configuration is identical to the previous one but utilizes the "conservative" governor for increased power savings. This is suitable for older platforms where the power-saving bias won't significantly impact gameplay.
 
-**Demanding Emulation:**
+**Demanding Emulation (performance profile):**
 
 ```
 echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -127,20 +127,12 @@ While no specific bugs have been identified with powersave mode, its reliability
 
 To implement these recommendations:
 
-1. **Download:** Clone this repository or download the zip file containing the modified cpufreq.sh script.
+1. **Download:** Clone this repository or download the zip file containing the Emus folder with the modified cpufreq.sh scripts.
 
 2. **Access SD Card:** Connect the Trimui Smart Pro's SD card to your computer.
 
-3. **Replace Scripts (Linux):** Open a terminal in the SD card's root directory and run the following command, replacing "/path/to/file/cpufreq.sh" with the actual path to the downloaded cpufreq.sh file:
+3. **Replace Scripts:** Copy the Emus folder of this repository and paste it in the root of your device SD card, when asked to merge or replace the files, accept for everything. This will copy the modified cpufreq.sh file over the original ones. By default the modified cpufreq.sh file will use the balanced profile, if you want to use the powersave or performance profiles you can copy the example scripts from this repository into the emulator you want, delete the cpufreq.sh file already there and rename the example to cpufreq.sh.
 
-   ```
-   find . -type f -name "cpufreq.sh" -exec cp /path/to/file/cpufreq.sh {} \;
-   ```
-
-   This command overwrites all default cpufreq.sh files with the modified version.
-
-4. **Replace Scripts (Other OS):** Manually replace the default cpufreq.sh files within each emulator folder with the downloaded script or use an appropriate program for your operating system.
-
-5. **Reinsert and Enjoy:** Reinsert the SD card into the Trimui Smart Pro and restart the device.
+4. **Reinsert and Enjoy:** Reinsert the SD card into the Trimui Smart Pro and restart the device.
 
 By following these steps, you can take control of your Trimui Smart Pro's CPU frequency, reducing heat generation, extending battery life, and enjoying a smoother gaming experience.
