@@ -91,7 +91,7 @@ echo 1800000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
 This configuration increases the maximum frequency limit to 1800MHz for a performance boost in more demanding games. However, it's important to note that this will increase heat generation and battery consumption more then it's increase in performance..
 
-**Important:** Avoid setting the maximum frequency to 2000MHz. This overclocked frequency is outside the CPU's supported range and offers minimal performance gains while significantly increasing device's temperature.
+**Important:** Avoid setting the maximum frequency to 2000MHz. This overclocked frequency is outside the CPU's supported range and offers minimal performance gains while significantly increasing device's temperature and potentially reducing CPU/SOC lifespan. 
 
 ### 5. Limitations: Shared Frequency Policy
 
